@@ -3,6 +3,7 @@ from django.db import models
 
 User = settings.AUTH_USER_MODEL
 
+
 class Tweets(models.Model):
     content = models.TextField(blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
