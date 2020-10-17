@@ -1,14 +1,23 @@
 
 import React from "react"
 
-class App extends React.Component {
+import Header from "./common/Header"
+import Footer from "./common/Footer"
+
+export default class App extends React.Component {
 
   render() {
 
     return(
-      <div className="container">
-        Wellcome To Twitter Clone
-      </div>
+      <main>
+        <Header></Header>
+
+        <div className="container">
+          <h1 className="text-center">Main</h1>
+        </div>
+
+        <Footer></Footer>
+      </main>
     )
   }
 }
