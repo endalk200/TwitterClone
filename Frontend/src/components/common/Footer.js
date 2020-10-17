@@ -14,7 +14,7 @@ export default class Footer extends React.Component {
                             <h5 className="text-uppercase">About The Project</h5>
                             <p>
                                 This web application project is created by 
-                                <strong><a className="text-dark" href="https://github.com/endalk200">endalk</a></strong>
+                                <strong><a className="text-dark" href="https://github.com/endalk200"> endalk </a></strong> 
                                 It is Twitter clone with latest Teck Stacks used. Some of which are:
                             </p>
                             <div className="row">
