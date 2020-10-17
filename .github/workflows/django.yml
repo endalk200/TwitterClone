@@ -30,31 +30,31 @@ jobs:
 
         steps:
         - name: Print Description
-            if: ${{ github.event_name == 'pull_request' }}
-            run: echo This action is triggered by a pull request and executed on $ENVIRONMENT
+          if: ${{  github.event_name == 'pull_request' }}
+          run: echo This action is triggered by a pull request and executed on $ENVIRONMENT
 
         - name: Checkout code
-            uses: actions/checkout@v2
+          uses: actions/checkout@v2
             
         - name: Set up Python ${{ matrix.python-version }}
-            uses: actions/setup-python@v2
-            with:
-                python-version: ${{ matrix.python-version }}
+          uses: actions/setup-python@v2
+          with:
+            python-version: ${{ matrix.python-version }}
 
         - name: Install requirements # install application requirements
-            run: |
-                python -m pip install --upgrade pip
-                pip install -r requirements.txt
-            working-directory: ./Backend
+          run: |
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+          working-directory: ./Backend
 
         - name: Check Syntax # check code formatting
-            run: flake8
-            working-directory: ./Backend
+          run: flake8
+          working-directory: ./Backend
 
         - name: Run Migrations # run migrations to create table in side car db container
-            run: python manage.py migrate
-            working-directory: ./Backend
+          run: python manage.py migrate
+          working-directory: ./Backend
 
         - name: Run Test # running tests
-            run: python manage.py test
-            working-directory: ./Backend
+          run: python manage.py test
+          working-directory: ./Backend
