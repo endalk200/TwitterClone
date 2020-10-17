@@ -12,6 +12,9 @@ defaults:
     shell: bash
     working-directory: .
 
+env:
+    ENVIRONMENT: Github Actions
+
 jobs:
     check_code_quality:
         name: Check The Code Quality Of The Backend Code
@@ -27,8 +30,6 @@ jobs:
 
         steps:
         - name: Print Description
-            env:
-                ENVIRONMENT: Github Actions
             if: ${{ github.event_name == 'pull_request' }}
             run: echo This action is triggered by a pull request and executed on $ENVIRONMENT
 
