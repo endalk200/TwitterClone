@@ -5,6 +5,7 @@ User = settings.AUTH_USER_MODEL
 
 
 class Tweets(models.Model):
+    author = models.ForeignKey(User, related_name="tweet", on_delete=models.CASCADE)
     content = models.TextField(blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
@@ -19,4 +20,4 @@ class Tweets(models.Model):
         """
         string representation of the class
         """
-        return f"Tweet ID: { self.pk } | Tweet Timestamp: { self.timestamp }"
+        return f"Tweet ID: { self.pk } | Author: {self.author} | Tweet Timestamp: { self.timestamp }"
